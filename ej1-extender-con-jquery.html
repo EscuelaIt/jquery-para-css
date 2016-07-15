@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test jquery</title>
+</head>
+<body>
+  <h1>distintos elementos a extender de $</h1>
+  <p></p>
+  <p></p>
+  <p></p>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('p').css('color', 'red');
+      var elem = $('<span>Esto lo estoy generando del lado de <b>jQuery</b></span>');
+      $('p').append(elem);
+    });
+  </script>
+</body>
+</html>

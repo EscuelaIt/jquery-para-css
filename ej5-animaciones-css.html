@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test jquery</title>
+  <style>
+  img{
+    width: 50vw;
+  }
+  div {
+    padding: 30px;
+    text-align: center;
+  }
+  .animar{
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    100%{
+      transform:rotate(-10deg);
+    }
+  }
+  </style>
+</head>
+<body>
+  <h1>Lanzar una animación con jQuery</h1>
+  <button>Animar</button>
+
+  <div>
+    <img src="smile.jpg">
+  </div>
+  <p>
+    Otro estándar de animación: http://greensock.com/gsap
+  </p>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('button').on('click', function() {
+        var imagen = $('img');
+        if(! imagen.hasClass('animar')) {
+          $(this).text('Parar');
+          imagen.addClass('animar');
+        } else {
+          $(this).text('Animar');
+          imagen.removeClass('animar');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

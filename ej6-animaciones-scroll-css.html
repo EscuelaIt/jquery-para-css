@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test jquery</title>
+  <style>
+  img{
+    width: 100px;
+  }
+  div {
+    padding: 30px;
+    text-align: center;
+  }
+  .animar{
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(-100deg);
+    }
+    50% {
+      transform: rotate(100deg);
+    }
+    100%{
+      transform:rotate(-100deg);
+    }
+  }
+  </style>
+</head>
+<body>
+  <h1>Lanzar una animación por scroll con jQuery</h1>
+  <p>1</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda nobis unde esse blanditiis. Beatae illo repellat quasi consequuntur excepturi doloremque, quod atque dignissimos, ipsa facere accusantium debitis ab reiciendis minus!</p>
+  <p>3</p>
+  <p>1</p>
+  <p>1</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam debitis voluptatem delectus, impedit earum, quisquam molestias voluptatum iusto labore doloribus cupiditate perspiciatis iure molestiae hic sed modi laboriosam, in aspernatur.</p>
+  <p>5</p>
+  <p>6</p>
+  <p>1</p>
+  <p>...</p>
+  <p>...</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam debitis voluptatem delectus, impedit earum, quisquam molestias voluptatum iusto labore doloribus cupiditate perspiciatis iure molestiae hic sed modi laboriosam, in aspernatur.</p>
+  <p>5</p>
+  <p>6</p>
+  <p>1</p>
+  <p>...</p>
+  <p>6</p>
+  <p>lorem</p>
+  <p>1</p>
+  <p>...</p>
+  <div>
+    <img id="im1" src="smile.jpg">
+  </div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda nobis unde esse blanditiis. Beatae illo repellat quasi consequuntur excepturi doloremque, quod atque dignissimos, ipsa facere accusantium debitis ab reiciendis minus!</p>
+  <p>3</p>
+  <p>1</p>
+  <p>1</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam debitis voluptatem delectus, impedit earum, quisquam molestias voluptatum iusto labore doloribus cupiditate perspiciatis iure molestiae hic sed modi laboriosam, in aspernatur.</p>
+  <p>5</p>
+  <p>6</p>
+  <p>1</p>
+  <p>...</p>
+  <p>...</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam debitis voluptatem delectus, impedit earum, quisquam molestias voluptatum iusto labore doloribus cupiditate perspiciatis iure molestiae hic sed modi laboriosam, in aspernatur.</p>
+  <p>5</p>
+  <p>6</p>
+  <p>1</p>
+  <p>...</p>
+  <p>6</p>
+  <p>lorem</p>
+  <p>1</p>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      var img = $('#im1');
+      var w = $(window);
+      var d = $(document);
+
+      w.scroll(function() {
+        var alturaPantalla = w.outerHeight();
+        var desplazamientoActual = d.scrollTop();
+        var posicionImagen = img.offset();
+        if(desplazamientoActual + (alturaPantalla / 2) >= posicionImagen.top){
+          img.addClass('animar');
+        }
+        if(desplazamientoActual + 100 >= posicionImagen.top){
+          img.hide(5000);
+        }
+        if(desplazamientoActual < 100){
+          img.removeClass('animar');
+          img.show();
+        }
+        console.log(desplazamientoActual, posicionImagen, alturaPantalla);
+      })
+
+
+
+      $('button').on('click', function() {
+        var imagen = $('img');
+        if(! imagen.hasClass('animar')) {
+          $(this).text('Parar');
+          imagen.addClass('animar');
+        } else {
+          $(this).text('Animar');
+          imagen.removeClass('animar');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

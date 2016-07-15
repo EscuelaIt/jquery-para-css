@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test jquery</title>
+  <style>
+  div {
+    color: #fff;
+    padding: 10px;
+    width: 190px;
+    text-align: center;
+    background-color: #333;
+  }
+  .estilohover {
+    background-color: green;
+  }
+  .grande{
+    font-size: 2em;
+  }
+  </style>
+</head>
+<body>
+  <h1>add class y remove class</h1>
+  <p>
+    <input type="checkbox" id="checkb"> Poner grande
+  </p>
+  <div id="elemento">elemento</div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut iure ipsam magnam culpa, in totam distinctio dolorem sint maxime, obcaecati dolore enim, quos cupiditate libero. Reiciendis esse, numquam inventore distinctio.</p>
+  <a href="#">Hover al otro elemento</a>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('a').hover(
+            function() {
+              $('#elemento').addClass('estilohover');
+            },
+            function() {
+              $('#elemento').removeClass('estilohover');
+            }
+      );
+      $('#checkb').on('click', function() {
+        console.log(this);
+        if($(this).prop('checked')) {
+          $('#elemento').addClass('grande');
+        } else {
+          $('#elemento').removeClass('grande');
+        }
+
+      });
+    });
+  </script>
+</body>
+</html>

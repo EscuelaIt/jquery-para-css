@@ -7,6 +7,7 @@
 <body>
   <h1 class="main">Eventos</h1>
   <p class="main">Esto es un párrafo main</p>
+  <p><input type="text" id="campoinput"></p>
   <button id="miboton">Clic!</button>
   <button id="noocultes">Quita el evento que oculta</button>
 
@@ -15,6 +16,10 @@
     $(document).ready(function() {
       $('#miboton').on('click', function() {
         $('.main').css('text-decoration', 'underline')
+      });
+
+      $('#campoinput').on('keyup', function(){
+        $('#campoinput').val($('#campoinput').val().toUpperCase());
       });
 
       function ocultaH1() {

@@ -17,6 +17,9 @@
   .grande{
     font-size: 2em;
   }
+  .rojo{
+    color: red;
+  }
   </style>
 </head>
 <body>
@@ -28,7 +31,12 @@
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut iure ipsam magnam culpa, in totam distinctio dolorem sint maxime, obcaecati dolore enim, quos cupiditate libero. Reiciendis esse, numquam inventore distinctio.</p>
   <a href="#">Hover al otro elemento</a>
 
-
+  <p>
+    <span id="alerta">alerta:</span> <b>otro</b>  <input type="checkbox" class="micheck">
+  </p>
+  <p>
+    <span id="cuidado">cuidado:</span> <b>otro</b> <input type="checkbox" class="micheck">
+  </p>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script>
@@ -48,8 +56,19 @@
         } else {
           $('#elemento').removeClass('grande');
         }
-
       });
+
+      $('.micheck').on('click', function() {
+        var checado = $(this).prop('checked');
+        if(checado){
+          $(this).siblings('span').addClass('rojo');
+          //$('#alerta').addClass('rojo');
+        } else {
+          $(this).siblings('span').removeClass('rojo');
+          //$('#alerta').removeClass('rojo');
+        }
+      });
+
     });
   </script>
 </body>
